@@ -1,11 +1,11 @@
-#!/usr/bin/ruby
+#!/usr/bin/ruby2.1.2
 
 require 'net/http'
 require 'json'
 
 def parseConfig()
 	config = Hash.new
-	File.open(ENV['HOME'] + "/.stackmon.conf").each do |line|
+	File.open("/etc/stackmon.conf").each do |line|
 		(key, value) = line.chomp.gsub(/\'|\"|\s/,'').split(/=/)
 		config[key] = value
 	end
